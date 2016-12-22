@@ -4784,16 +4784,7 @@ public class ODPDBAccess
 						throw new UserErrorMessage("You cannot enter a group owned house in a party unless all members of the party are part of that group.");
 					}
 				} else if(ownerKey.getKind().equals("User")) {
-					//iterates through the list of accounts that the party members belong to.
-					//if there are any differences, set the flag to false
-					boolean allOfSameUser = true;
-					for(int i = 0; i < partyUsers.size() - 1; i++) {
-						if(!GameUtils.equals(partyUsers.get(i), partyUsers.get(i+1))){
-							allOfSameUser = false;
-							break;
-						}
-					}
-					if(!allOfSameUser && !GameUtils.equals(ownerKey, partyUsers.get(0))) {
+					if(!GameUtils.equals(ownerKey, partyUsers.get(0))) {
 						throw new UserErrorMessage("You cannot enter a player owned house in a party unless all members of the party are characters of that player.");
 					}
 				}
